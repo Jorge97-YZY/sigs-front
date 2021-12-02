@@ -1,2 +1,13 @@
-<button class="btn btn-outline-success">Click</button>
-<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <app-sidebar></app-sidebar>
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid">
+        <app-home></app-home>
+      </div>
+
+      <app-footer></app-footer>
+    </main>
+  </div>
+</div>
