@@ -4,7 +4,7 @@
 </ol>
 
 <div class="container">
-  <form>
+  <form [formGroup]="form">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -25,14 +25,14 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="nome">Nome: </label>
-          <input type="text" name="nome" id="nome" class="form-control">
+          <input type="text" name="nome" id="nome" class="form-control" formControlName="nome">
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="text" name="email" id="email" class="form-control">
+          <input type="text" name="email" id="email" class="form-control" formControlName="email">
         </div>
       </div>
     </div>
@@ -41,24 +41,23 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="telefone">(+244)Telefone:</label>
-          <input type="tel" name="telefone" id="telefone" class="form-control">
+          <input type="tel" name="telefone" id="telefone" class="form-control" formControlName="telefone">
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="bi">Bilhete de Identidade:</label>
-          <input type="tel" name="bi" id="bi" class="form-control">
+          <input type="tel" name="bi" id="bi" class="form-control" formControlName="bi">
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-4">
-        <button class="btn cor">
+        <button class="btn cor" (click)=" onSubmit()">
           <i class="fa fa-save"></i> Guardar
         </button>
-
         <button class="btn cor">
           <i class="fa fa-times"></i> Cancelar
         </button>
