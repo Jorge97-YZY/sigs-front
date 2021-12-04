@@ -1,0 +1,52 @@
+<h1 class="mt-4"> </h1>
+<ol class="breadcrumb mb-4 cor">
+  <li class="breadcrumb-item active cor">Listagem de Clientes</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 mb-2">
+      <button class="btn cor" (click)="onCliente()">
+        <i class="fa fa-plus"></i>
+        Novo
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>BI</th>
+      <th>Telefone</th>
+      <th>Data de Cadastro</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of clientes">
+      <td>{{ c.id }}</td>
+      <td>{{ c.nome }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.bi }}</td>
+      <td>{{ c.telefone }}</td>
+      <td>{{ c.dataCadastro }}</td>
+      <td>
+        <button class="btn cor">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn cor">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+
+</div>
+

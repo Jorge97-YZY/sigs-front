@@ -5,18 +5,30 @@
 
 <div class="container">
   <form [formGroup]="form">
+
     <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" *ngIf="success == true">
+          Cliente Guardado/Editado com sucesso!
+        </div>
+        <div class="alert alert-danger" *ngFor="let erro of errors ">
+          {{ erro }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="cliente.id">
       <div class="col-md-6">
         <div class="form-group">
           <label for="id">ID:</label>
-          <input type="text" name="id" id="" class="form-control" disabled>
+          <input type="text" name="id" id="" class="form-control" [value]="cliente.id" disabled>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="dataCadastro">Data de Cadastro:</label>
-          <input type="date" name="dataCadastro" id="dataCadastro" class="form-control" disabled>
+          <input type="text" name="dataCadastro" id="dataCadastro" class="form-control" [value]="cliente.dataCadastro" disabled>
         </div>
       </div>
     </div>
@@ -25,14 +37,14 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="nome">Nome: </label>
-          <input type="text" name="nome" id="nome" class="form-control" formControlName="nome">
+          <input type="text" name="nome" id="nome" class="form-control" [value]="cliente.nome" formControlName="nome">
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="text" name="email" id="email" class="form-control" formControlName="email">
+          <input type="text" name="email" id="email" class="form-control" [value]="cliente.email" formControlName="email">
         </div>
       </div>
     </div>
@@ -41,14 +53,14 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="telefone">(+244)Telefone:</label>
-          <input type="tel" name="telefone" id="telefone" class="form-control" formControlName="telefone">
+          <input type="tel" name="telefone" id="telefone" class="form-control" [value]="cliente.telefone" formControlName="telefone">
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label for="bi">Bilhete de Identidade:</label>
-          <input type="tel" name="bi" id="bi" class="form-control" formControlName="bi">
+          <input type="tel" name="bi" id="bi" class="form-control" [value]="cliente.bi" formControlName="bi">
         </div>
       </div>
     </div>
@@ -58,7 +70,7 @@
         <button class="btn cor" (click)=" onSubmit()">
           <i class="fa fa-save"></i> Guardar
         </button>
-        <button class="btn cor">
+        <button class="btn cor" (click)="onCancel()">
           <i class="fa fa-times"></i> Cancelar
         </button>
       </div>

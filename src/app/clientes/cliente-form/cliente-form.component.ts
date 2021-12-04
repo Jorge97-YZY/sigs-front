@@ -2,6 +2,7 @@ import { ClientesService } from './../clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from 'src/app/models/cliente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-form',
@@ -12,9 +13,20 @@ import { Cliente } from 'src/app/models/cliente';
 export class ClienteFormComponent implements OnInit {
 
   form!: FormGroup;
+  cliente: Cliente = {
+    id: 0,
+    nome: '',
+    bi: '',
+    telefone: 0,
+    email: '',
+    dataCadastro: ''
+  };
+  success: boolean = false;
+  errors!: String[];
   constructor(
     private fb: FormBuilder,
-    private service: ClientesService
+    private service: ClientesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +44,18 @@ createForm() {
 
 onSubmit(){
     this.service.postCliente(this.form.value).subscribe(response=>{
-      console.log(response);
+      this.cliente = response;
+     this.success = true;
+     this.errors = [];
+    },
+    errorResponse => {
+      this.success = false;
+      this.errors = errorResponse.error.errors;
     })
+}
+onCancel(){
+  this.router.navigate(['/clientes/listar']);
+
 }
 
 }
