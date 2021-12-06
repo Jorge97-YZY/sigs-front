@@ -1,10 +1,37 @@
 <h1 class="mt-4"> </h1>
 <ol class="breadcrumb mb-4 cor">
-  <li class="breadcrumb-item active cor"> Cadastro de Cliente</li>
+  <li class="breadcrumb-item active cor">Editar de Cliente</li>
 </ol>
 
 <div class="container">
   <form [formGroup]="form">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" *ngIf="success == true">
+          Editado com sucesso!
+        </div>
+        <div class="alert alert-danger" *ngFor="let erro of errors ">
+          {{ erro }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="cliente.id">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id">ID:</label>
+          <input type="text" name="id" id="id" class="form-control" [value]="cliente.id" disabled>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="dataCadastro">Data de Cadastro:</label>
+          <input type="text" name="dataCadastro" id="dataCadastro" class="form-control" [value]="cliente.dataCadastro" disabled>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-6">
@@ -41,7 +68,7 @@
     <div class="row">
       <div class="col-md-4 mb-3">
         <button class="btn cor" (click)=" onSubmit()">
-          <i class="fa fa-save"></i> Guardar
+          <i class="fa fa-edit"></i> Editar
         </button>
         <button class="btn cor" (click)="onCancel()">
           <i class="fa fa-list"></i>

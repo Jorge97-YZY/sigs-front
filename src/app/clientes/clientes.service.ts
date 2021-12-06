@@ -3,22 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cliente } from '../models/cliente';
+import { delay } from 'rxjs/operators';
+import { CrudService } from '../shared/crud-service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientesService {
-  private readonly API = `${environment.API}clientes`;
+export class ClientesService extends CrudService<Cliente> {
 
   constructor(
-    private http: HttpClient
-  ) { }
-
-  getCliente(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.API);
+    protected http: HttpClient
+  ) {
+    super(http, `${environment.API}clientes`);
   }
-  postCliente(cliente: Cliente): Observable<Cliente>{
-    return this.http.post<Cliente>(this.API, cliente);
-  }
-
 }

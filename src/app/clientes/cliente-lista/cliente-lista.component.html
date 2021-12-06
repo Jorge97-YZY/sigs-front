@@ -14,39 +14,40 @@
 
   <div class="row">
     <div class="col-md-12">
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Nome</th>
-      <th>Email</th>
-      <th>BI</th>
-      <th>Telefone</th>
-      <th>Data de Cadastro</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of clientes">
-      <td>{{ c.id }}</td>
-      <td>{{ c.nome }}</td>
-      <td>{{ c.email }}</td>
-      <td>{{ c.bi }}</td>
-      <td>{{ c.telefone }}</td>
-      <td>{{ c.dataCadastro }}</td>
-      <td>
-        <button class="btn cor">
-          <i class="fa fa-edit"></i>
-        </button>
-        <button class="btn cor">
-          <i class="fa fa-trash"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <app-load [message]="'Clientes'" *ngIf="load"></app-load>
+      <table class="table table-condensed table-hover" *ngIf="!load">
+
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>BI</th>
+            <th>Telefone</th>
+            <th>Data de Cadastro</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of clientes">
+            <td>{{ c.id }}</td>
+            <td>{{ c.nome }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.bi }}</td>
+            <td>{{ c.telefone }}</td>
+            <td>{{ c.dataCadastro }}</td>
+            <td>
+              <button class="btn cor">
+                <i class="fa fa-edit" routerLink="/clientes/editar/{{c.id}}"></i>
+              </button>
+              <button class="btn cor">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
 </div>
-

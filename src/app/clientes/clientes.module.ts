@@ -5,17 +5,21 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteListaComponent } from './cliente-lista/cliente-lista.component';
+import { SharedModule } from '../shared/shared.module';
+import { ClienteEditarComponent } from './cliente-editar/cliente-editar.component';
 
 
 @NgModule({
   declarations: [
     ClienteFormComponent,
-    ClienteListaComponent
+    ClienteListaComponent,
+    ClienteEditarComponent
   ],
   imports: [
     CommonModule,
     ClientesRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ClientesModule { }
