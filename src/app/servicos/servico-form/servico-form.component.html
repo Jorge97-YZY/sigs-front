@@ -1,0 +1,49 @@
+<h1 class="mt-4"> </h1>
+<ol class="breadcrumb mb-4 cor">
+  <li class="breadcrumb-item active cor"> Cadastro de Serviço</li>
+</ol>
+
+<div class="container">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label >Cliente:</label>
+          <select class="form-control" formControlName="idCliente">
+            <option value="">Selecione...</option>
+            <option *ngFor="let c of clientes" [ngValue]="c.id">
+              {{ c.nome }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="descricao">Descrição:</label>
+          <input class="form-control" type="text" name="descricao" id="descricao" formControlName="descricao"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="preco">Preço:</label>
+          <input class="form-control" type="text" name="preco" id="preco" formControlName="preco"></div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="data">Data:</label>
+          <input class="form-control" type="date"  name="data" id="data" formControlName="data"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <button class="btn cor" (click)="onSubmit()"><i class="fa fa-save"></i> Guardar</button>
+      </div>
+    </div>
+
+  </form>
+</div>

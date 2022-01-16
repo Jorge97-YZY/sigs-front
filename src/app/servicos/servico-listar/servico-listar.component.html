@@ -1,0 +1,60 @@
+<h1 class="mt-4"> </h1>
+<ol class="breadcrumb mb-4 cor">
+  <li class="breadcrumb-item active cor"> Pesquisa de Serviços</li>
+</ol>
+
+<div class="container">
+  <form [formGroup]="form" >
+    <div class="row">
+      <div class="col-md-6">
+        <label for="nome">Nome Cliente:</label>
+        <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
+      </div>
+      <div class="col-md-6">
+        <label for="mes">Mês:</label>
+       <select class="form-control" formControlName="mes">
+         <option > Selecione..</option>
+         <option *ngFor="let m of meses" [value]="m">
+           {{ m }}
+         </option>
+       </select>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">
+        <button class="btn cor" (click)="onSubmit()">
+          <i class="fa fa-search"></i>
+          Pesquisar
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row mt-2">
+    <div class="alert alert-warning" role="alert" *ngIf="message">
+      {{ message }}
+    </div>
+    <div class="col-md-12">
+      <app-load [message]="'Serviços'" *ngIf="load"></app-load>
+      <table class="table table-condensed table-hover" *ngIf="!load">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of lista">
+            <td>{{s.cliente.nome}}</td>
+            <td>{{s.descricao}}</td>
+            <td>{{s.valor}}</td>
+            <td>{{s.data}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

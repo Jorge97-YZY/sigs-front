@@ -6,13 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'novo', component: ClienteFormComponent
+    path: 'novo', component: ClienteFormComponent
   },
   {
-    path:'editar/:id', component: ClienteEditarComponent
+    path: 'editar/:id', component: ClienteEditarComponent
   },
   {
-    path:'listar', component: ClienteListaComponent
+    path: 'listar', component: ClienteListaComponent
   }
 ];
 

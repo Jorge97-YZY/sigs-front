@@ -11,7 +11,7 @@ import { LoadComponent } from './load/load.component';
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     LoadComponent
   ]
 })

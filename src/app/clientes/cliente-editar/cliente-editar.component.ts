@@ -50,13 +50,13 @@ export class ClienteEditarComponent implements OnInit, OnDestroy {
   findById(): void {
     this.route.params.pipe(
       takeUntil(this.$unsub)
-      ).subscribe((params: any) => {
+    ).subscribe((params: any) => {
       const id = +params['id'];
       this.service.findById(id).pipe(
         takeUntil(this.$unsub)
       ).subscribe(response => {
-       this.updateForm(response)
-       this.cliente = response
+        this.updateForm(response)
+        this.cliente = response
       })
     })
   }
@@ -73,10 +73,10 @@ export class ClienteEditarComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.service.create(this.form.value).pipe(
+    this.service.update(this.cliente.id, this.form.value).pipe(
       takeUntil(this.$unsub)
-      ).subscribe(response => {
-      this.cliente = response;
+    ).subscribe(response => {
+      this.router.navigate(['/clientes/listar']);
       this.success = true;
       this.errors = [];
     },
