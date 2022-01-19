@@ -42,11 +42,10 @@ export class ServicoListarComponent implements OnInit, OnDestroy {
       takeUntil(this.$unsub)
     ).subscribe(response => {
       this.lista = response
+      this.load= false
       if(this.lista.length <= 0){
-        this.load = false
         this.message = ' Nenhum Registro encontrado.'
       } else {
-        this.load= false
         this.message = '';
 
       }
