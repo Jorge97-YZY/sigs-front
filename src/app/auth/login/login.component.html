@@ -1,0 +1,52 @@
+<div class="bg-color">
+  <div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+      <main>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header cor">
+                  <h3 class="text-center font-weight-light my-4">
+                    Entrar
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="alert alert-danger" *ngIf="loginErro">
+                    Login e/ou Senha encorreto(a).
+                  </div>
+                  <form [formGroup]="form">
+
+                    <div class="form-group">
+                      <label for="username" class="small mb-2">Usuario</label>
+                      <input type="text" class="form-control py-4" name="username" id="username"
+                        formControlName="username" placeholder="Digite o seu Usuario">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="small mb-2">Senha</label>
+                      <input type="password" class="form-control py-4" name="password" id="password"
+                        formControlName="password" placeholder="Digite a sua Senha">
+                    </div>
+
+                    <div class="form-group d-flex align-items-center justify-content-md-between mt-4 mb-0 ">
+                      <button class="btn cor" (click)="onSubmit()"> <i class="fa fa-sign-in"></i> Entrar</button>
+                    </div>
+
+                  </form>
+                </div>
+                <div class="card-footer text-center">
+                  <div class="small">
+                    <a routerLink="/cadastro">
+                      Não possui Usuário? Cadastre-se!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

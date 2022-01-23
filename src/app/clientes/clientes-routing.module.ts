@@ -13,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'listar', component: ClienteListaComponent
+  },
+  {
+    path: '', redirectTo: '/clientes/listar', pathMatch: 'full'
   }
 ];
 

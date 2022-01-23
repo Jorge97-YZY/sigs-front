@@ -9,6 +9,9 @@ const routes: Routes = [
   },
   {
     path: 'listar', component: ServicoListarComponent
+  },
+  {
+    path: '', redirectTo: '/servicos/listar', pathMatch: 'full'
   }
 ];
 

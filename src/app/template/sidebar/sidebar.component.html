@@ -16,7 +16,7 @@
         </a>
         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" routerLink="/clientes/listar"> Listagem</a>
+            <a class="nav-link" routerLink="/clientes"> Listagem</a>
             <a class="nav-link" routerLink="/clientes/novo"> Cadastro </a>
             <a class="nav-link" href="#"> Relatório </a>
           </nav>
@@ -30,7 +30,7 @@
         </a>
         <div class="collapse" id="servico" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link" routerLink="/servicos/listar"> Pesquisa</a>
+            <a class="nav-link" routerLink="/servicos"> Pesquisa</a>
             <a class="nav-link" routerLink="/servicos/novo"> Cadastro </a>
           </nav>
         </div>
@@ -52,7 +52,7 @@
           </nav>
         </div>
         <div class="sb-sidenav-menu-heading">Logout</div>
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link"(click)="logout()" href="#" >
           <div class="sb-nav-link-icon"><i class="fa fa-sign-out"></i></div>
           Sair
         </a>
@@ -60,7 +60,7 @@
     </div>
     <div class="sb-sidenav-footer log">
       <div class="small">Logado como:</div>
-      Start Bootstrap
+      {{ usuarioLogado }}
     </div>
   </nav>
 </div>
