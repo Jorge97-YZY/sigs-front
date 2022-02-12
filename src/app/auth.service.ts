@@ -52,7 +52,6 @@ export class AuthService {
       .set('username', login.username)
       .set('password', login.password)
       .set('grant_type', 'password');
-
     const headers = {
       'Authorization': 'Basic ' + btoa(`${this.clientID}:${this.clientSecret}`),
       'Content-Type': 'application/x-www-form-urlencoded'

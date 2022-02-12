@@ -38,4 +38,9 @@ export class CrudService<T> {
     );
   }
 
+  getReport(): Observable<any> {
+    return this.http.get(`${this.API_URL}/pdf`, { responseType: 'blob' });
+  }
+
+
 }

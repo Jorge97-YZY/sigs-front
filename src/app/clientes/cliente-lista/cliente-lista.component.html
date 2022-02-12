@@ -4,10 +4,14 @@
 </ol>
 <div class="container">
   <div class="row">
-    <div class="col-md-2 mb-2">
+    <div class="col-md-4 mb-2">
       <button class="btn cor" (click)="onCliente()">
         <i class="fa fa-plus"></i>
         Novo
+      </button>
+      <button class="btn cor" (click)="report()">
+        <i class="fa fa-print"></i>
+        Relatório
       </button>
     </div>
   </div>
@@ -38,6 +42,9 @@
             <td>{{ c.dataCadastro }}</td>
             <td>
               <button class="btn cor">
+                <i class="fa fa-search" (click)="prepararDelecao(c)" data-toggle="modal" data-target="#modalDetail"></i>
+              </button>
+              <button class="btn cor">
                 <i class="fa fa-edit" routerLink="/clientes/editar/{{c.id}}"></i>
               </button>
               <button class="btn cor" (click)="prepararDelecao(c)" data-toggle="modal" data-target="#modalDelecao">
@@ -50,6 +57,7 @@
     </div>
   </div>
 
+  <!-- Modal Para Deleção -->
   <div id="modalDelecao" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -62,6 +70,37 @@
         <div class="modal-footer">
           <button class="btn cor" (click)="onDelete()" data-dismiss="modal">Sim</button>
           <button class="btn cor" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Para Detalhes -->
+  <div id="modalDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header cor">
+          <h4>Detalhes</h4>
+        </div>
+        <div class="modal-body" *ngIf="clienteSelecionado">
+          <div class="row">
+
+            <div class="col-md-4 mr-3">
+              <img src="../../../assets/img/pictures/user.PNG" alt="Foto do Cliente " class="image ">
+             </div>
+             <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Nome Completo:</strong>  {{ clienteSelecionado.nome }} </li>
+                <li class="list-group-item"><strong>Bilhete de Identidade:</strong>  {{ clienteSelecionado.bi }} </li>
+                <li class="list-group-item"><strong>Data de Nascimento: </strong> {{ clienteSelecionado.dataCadastro }} </li>
+                <li class="list-group-item"><strong>Numero de Telefone:</strong> (+244) {{ clienteSelecionado.telefone }} </li>
+                <li class="list-group-item"><strong>Email:</strong>  {{ clienteSelecionado.email }}</li>
+              </ul>
+             </div>
+          </div>
+          </div>
+        <div class="modal-footer">
+          <button class="btn cor" data-dismiss="modal">Sair</button>
         </div>
       </div>
     </div>

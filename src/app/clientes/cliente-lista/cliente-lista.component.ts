@@ -54,6 +54,16 @@ export class ClienteListaComponent implements OnInit, OnDestroy {
     }, error => this.msg.msgError(' Ocorreu um erro ao apagar cliente.', 'Erro!')
     );
   }
+  report() {
+    this.service.getReport().pipe(
+      takeUntil(this.$unsub)
+    ).subscribe((response: Blob) => {
+      var fileURL = window.URL.createObjectURL(response);
+      window.open(fileURL, '_blank');
+    }
+    )
+  }
+
   ngOnDestroy(): void {
     this.$unsub.next();
     this.$unsub.complete();
