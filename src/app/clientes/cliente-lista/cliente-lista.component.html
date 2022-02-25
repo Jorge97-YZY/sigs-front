@@ -42,7 +42,7 @@
             <td>{{ c.dataCadastro }}</td>
             <td>
               <button class="btn cor">
-                <i class="fa fa-search" (click)="prepararDelecao(c)" data-toggle="modal" data-target="#modalDetail"></i>
+                <i class="fa fa-eye" (click)="prepararDelecao(c)" data-toggle="modal" data-target="#modalDetail"></i>
               </button>
               <button class="btn cor">
                 <i class="fa fa-edit" routerLink="/clientes/editar/{{c.id}}"></i>
@@ -80,7 +80,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header cor">
-          <h4>Detalhes</h4>
+          <h4>Detalhes do Cliente</h4>
         </div>
         <div class="modal-body" *ngIf="clienteSelecionado">
           <div class="row">
